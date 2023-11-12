@@ -78,12 +78,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:counterEnabled="true"
                 app:layout_constraintBottom_toTopOf="@+id/btn_log_in"
                 app:layout_constraintEnd_toEndOf="@+id/til_mail"
                 app:layout_constraintStart_toStartOf="@+id/til_mail"
-                app:layout_constraintTop_toBottomOf="@+id/til_mail"
-                app:passwordToggleEnabled="true">
+                app:layout_constraintTop_toBottomOf="@+id/til_mail">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_password"
@@ -99,6 +97,7 @@
                 android:id="@+id/btn_log_in"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="#35375C"
                 android:fontFamily="@font/roboto"
                 android:text="Log In"
