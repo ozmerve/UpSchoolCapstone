@@ -61,6 +61,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_view2">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#45B8C3D6"
