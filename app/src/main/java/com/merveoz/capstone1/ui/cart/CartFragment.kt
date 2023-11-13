@@ -74,14 +74,14 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 is CartProductState.EmptyScreen -> {
                     progressBar.gone()
                     rvCartProducts.gone()
-                    tvError.text = it.failMessage
-                    tvError.visible()
-                    ivError.visible()
                     tvTotalAmount.gone()
                     tvTotalAmountText.gone()
                     ivClearCart.gone()
                     tvCart.gone()
                     btnGoToPayment.gone()
+                    tvError.text = it.failMessage
+                    tvError.visible()
+                    ivError.visible()
                 }
 
                 is CartProductState.ShowPopUp -> {

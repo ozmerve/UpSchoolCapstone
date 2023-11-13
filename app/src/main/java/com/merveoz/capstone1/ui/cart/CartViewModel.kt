@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.merveoz.capstone1.common.Resource
-import com.merveoz.capstone1.data.model.request.ClearCartRequest
-import com.merveoz.capstone1.data.model.request.DeleteFromCartRequest
 import com.merveoz.capstone1.data.model.response.ProductUI
 import com.merveoz.capstone1.data.repository.FirebaseRepository
 import com.merveoz.capstone1.data.repository.ProductRepository
@@ -25,12 +23,6 @@ class CartViewModel @Inject constructor(
 
     private val _totalPriceAmount = MutableLiveData(0.0)
     val totalPriceAmount: LiveData<Double> = _totalPriceAmount
-
-    fun deleteFromCart(productId: Int) = viewModelScope.launch {
-        productRepository.deleteFromCart(firebaseRepository.getUserId(), productId)
-        getCartProducts()
-        resetTotalAmount()
-    }
 
     fun getCartProducts() = viewModelScope.launch {
         _cartProductState.value = CartProductState.Loading
@@ -54,18 +46,20 @@ class CartViewModel @Inject constructor(
             }
         }
     }
-
+    fun deleteFromCart(productId: Int) = viewModelScope.launch {
+        productRepository.deleteFromCart(firebaseRepository.getUserId(), productId)
+        getCartProducts()
+        resetTotalAmount()
+    }
     fun clearCart() = viewModelScope.launch {
         productRepository.clearCart(firebaseRepository.getUserId())
         getCartProducts()
         resetTotalAmount()
     }
-
     private fun resetTotalAmount() {
         _totalPriceAmount.value = 0.0
     }
 }
-
 sealed interface CartProductState {
     object  Loading : CartProductState
     data class SuccessState(val products: List<ProductUI>) : CartProductState

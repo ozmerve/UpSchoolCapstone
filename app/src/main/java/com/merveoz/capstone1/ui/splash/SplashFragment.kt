@@ -8,10 +8,6 @@ import androidx.navigation.fragment.findNavController
 import com.merveoz.capstone1.R
 import com.merveoz.capstone1.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import viewBinding
 
 @AndroidEntryPoint

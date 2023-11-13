@@ -1,13 +1,11 @@
 package com.merveoz.capstone1.ui.signup
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
 import com.merveoz.capstone1.R
 import com.merveoz.capstone1.common.gone
 import com.merveoz.capstone1.common.visible
@@ -25,6 +23,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeData()
+
         with(binding) {
             btnSignup.setOnClickListener {
                 viewModel.signUp(
@@ -36,8 +36,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 findNavController().navigate(SignUpFragmentDirections.signUpToLogIn())
             }
         }
-
-        observeData()
     }
 
     private fun observeData() = with(binding) {

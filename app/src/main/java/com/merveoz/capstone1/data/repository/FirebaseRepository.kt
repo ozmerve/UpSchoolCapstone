@@ -1,10 +1,8 @@
 package com.merveoz.capstone1.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.merveoz.capstone1.common.Resource
 import kotlinx.coroutines.tasks.await
-import javax.inject.Inject
 
 
 class FirebaseRepository ( private val firebaseAuth: FirebaseAuth) {
