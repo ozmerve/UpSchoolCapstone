@@ -80,6 +80,7 @@ class CartViewModel @Inject constructor(
             }
         }
     }
+
     private fun resetTotalAmount() {
         _totalPriceAmount.value = 0.0
     }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.merveoz.capstone1.common.Resource
 import com.merveoz.capstone1.data.repository.FirebaseRepository
 import com.merveoz.capstone1.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,7 +29,7 @@ class PaymentViewModel @Inject constructor(
             _paymentState.value = PaymentState.ShowPopUp(check)
         } else {
             _paymentState.value = PaymentState.GoSuccess
-            productRepository.clearCart(firebaseRepository.getUserId())
+            clearCart()
         }
     }
 
@@ -41,6 +42,16 @@ class PaymentViewModel @Inject constructor(
             cvc.isEmpty() || cvc.length < 3 -> "Invalid CVC!"
             mail.isEmpty() -> "Mail cannot be left blank!"
             else -> null
+        }
+    }
+
+    private fun clearCart() = viewModelScope.launch {
+
+        _paymentState.value =
+        when(val result = productRepository.clearCart(firebaseRepository.getUserId())) {
+            is Resource.Success -> PaymentState.GoSuccess
+            is Resource.Error -> PaymentState.ShowPopUp(result.errorMessage)
+            is Resource.Fail -> PaymentState.ShowPopUp(result.failMessage)
         }
     }
 }
