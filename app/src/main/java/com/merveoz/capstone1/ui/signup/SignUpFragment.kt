@@ -28,6 +28,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         with(binding) {
             btnSignup.setOnClickListener {
                 viewModel.signUp(
+                    etFullName.text.toString(),
                     etMail.text.toString(),
                     etPassword.text.toString()
                 )

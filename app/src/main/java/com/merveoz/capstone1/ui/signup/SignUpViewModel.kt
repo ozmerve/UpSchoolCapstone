@@ -18,8 +18,8 @@ class SignUpViewModel @Inject constructor(
     private var _signUpState = MutableLiveData<SignUpState>()
     val signUpState: LiveData<SignUpState> get() = _signUpState
 
-    fun signUp(email: String, password: String) = viewModelScope.launch {
-        if (checkFields(email, password)) {
+    fun signUp(fullname: String, email: String, password: String) = viewModelScope.launch {
+        if (checkFields(fullname, email, password)) {
             _signUpState.value = SignUpState.Loading
 
             _signUpState.value = when (val result = firebaseRepository.signUp(email, password)) {
@@ -30,8 +30,12 @@ class SignUpViewModel @Inject constructor(
         }
     }
 
-    private fun checkFields(email: String, password: String): Boolean {
+    private fun checkFields(fullname: String, email: String, password: String): Boolean {
         return when {
+            fullname.isEmpty() -> {
+                _signUpState.value = SignUpState.ShowPopUp("Name cannot be left blank!")
+                false
+            }
             email.isEmpty() -> {
                 _signUpState.value = SignUpState.ShowPopUp("Email cannot be left blank!")
                 false
