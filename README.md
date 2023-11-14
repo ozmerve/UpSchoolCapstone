@@ -23,7 +23,8 @@
 | Favorites | Search |
 | --------- | ------ |
 
-|<img src="https://github.com/ozmerve/UpschoolCapstone/assets/88098245/707d1192-c1f0-4fbe-a4ae-52adae07eb31" width="250" height="500"/>|<img src="https://github.com/ozmerve/UpschoolCapstone/assets/88098245/a674b925-e9bf-4e89-9f5c-f1a028c9b8ed" width="250" height="500"/>|
+
+|<img src="https://github.com/ozmerve/UpschoolCapstone/assets/88098245/8fd8cd95-72fc-4c9e-b589-d46a8a7c8719" width="250" height="500"/>|<img src="https://github.com/ozmerve/UpschoolCapstone/assets/88098245/a674b925-e9bf-4e89-9f5c-f1a028c9b8ed" width="250" height="500"/>|
 
 </br>
 
