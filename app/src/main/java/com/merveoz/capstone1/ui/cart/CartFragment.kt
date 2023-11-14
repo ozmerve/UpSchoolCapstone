@@ -94,7 +94,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         }
 
         viewModel.totalPriceAmount.observe(viewLifecycleOwner) { amount->
-            tvTotalAmount.text = String.format("$ %.2f", amount)
+            tvTotalAmount.text = String.format("₺ %.2f", amount)
         }
     }
 

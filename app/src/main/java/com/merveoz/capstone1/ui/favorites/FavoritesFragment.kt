@@ -34,7 +34,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
             rvFavProducts.adapter = favoritesAdapter
 
             tvClear.setOnClickListener {
-                onClearClick()
+                viewModel.clearFavorites()
             }
 
             ivBack.setOnClickListener {
@@ -77,9 +77,5 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
 
     private fun onDeleteClick(product: ProductUI) {
         viewModel.deleteFromFavorites(product)
-    }
-
-    private fun onClearClick() {
-        viewModel.clearFavorites()
     }
 }

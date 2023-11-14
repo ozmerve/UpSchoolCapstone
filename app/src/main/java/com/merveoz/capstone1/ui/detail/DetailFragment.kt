@@ -60,7 +60,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     ivProduct.visible()
                     ivFav.visible()
                     tvTitle.text = state.product.title
-                    tvPrice.text = "${state.product.price}"
+                    tvPrice.text = "${state.product.price}₺"
                     tvDescription.text = state.product.description
                     ratingBar.rating = state.product.rate.toFloat()
                     tvCategory.text = state.product.category
@@ -68,7 +68,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     if (!state.product.saleState) {
                         tvSalePrice.gone()
                     } else {
-                        tvSalePrice.text = "${state.product.salePrice}"
+                        tvSalePrice.text = "${state.product.salePrice}₺"
                     }
 
                     ivFav.setBackgroundResource(
