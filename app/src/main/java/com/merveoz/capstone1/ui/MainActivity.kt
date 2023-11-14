@@ -31,16 +31,16 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
 
             when (destination.id) {
-                R.id.logInFragment,
-                R.id.signUpFragment,
-                R.id.splashFragment,
-                R.id.successFragment
+                R.id.homeFragment,
+                R.id.searchFragment,
+                R.id.favoritesFragment,
+                R.id.cartFragment
                 -> {
-                    binding.bottomNavigation.gone()
+                    binding.bottomNavigation.visible()
                 }
 
                 else -> {
-                    binding.bottomNavigation.visible()
+                    binding.bottomNavigation.gone()
                 }
             }
         }
