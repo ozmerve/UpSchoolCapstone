@@ -34,7 +34,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             rvCartProducts.adapter = cartAdapter
 
             ivClearCart.setOnClickListener{
-                onClearClick()
+                viewModel.clearCart()
             }
 
             ivBackCart.setOnClickListener{
@@ -104,9 +104,5 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private fun onDeleteClick(productId: Int) {
         viewModel.deleteFromCart(productId)
-    }
-
-    private fun onClearClick() {
-        viewModel.clearCart()
     }
 }
