@@ -22,7 +22,18 @@ class PaymentViewModel @Inject constructor(
     fun makePayment(fullName: String, cardNumber: String, month: String, year: String, cvc: String, mail: String) = viewModelScope.launch {
         _paymentState.value = PaymentState.Loading
 
-        val errorMessage = when {
+        val check = checkFields(fullName, cardNumber, month, year, cvc, mail)
+
+        if (check != null) {
+            _paymentState.value = PaymentState.ShowPopUp(check)
+        } else {
+            _paymentState.value = PaymentState.GoSuccess
+            productRepository.clearCart(firebaseRepository.getUserId())
+        }
+    }
+
+    private fun checkFields(fullName: String, cardNumber: String, month: String, year: String, cvc: String, mail: String): String? {
+        return when {
             fullName.isEmpty() -> "Name cannot be left blank!"
             cardNumber.isEmpty() || cardNumber.length != 16 -> "Invalid card number!"
             month.isEmpty() -> "Month cannot be left blank!"
@@ -30,13 +41,6 @@ class PaymentViewModel @Inject constructor(
             cvc.isEmpty() || cvc.length < 3 -> "Invalid CVC!"
             mail.isEmpty() -> "Mail cannot be left blank!"
             else -> null
-        }
-
-        if (errorMessage != null) {
-            _paymentState.value = PaymentState.ShowPopUp(errorMessage)
-        } else {
-            _paymentState.value = PaymentState.GoSuccess
-            productRepository.clearCart(firebaseRepository.getUserId())
         }
     }
 }

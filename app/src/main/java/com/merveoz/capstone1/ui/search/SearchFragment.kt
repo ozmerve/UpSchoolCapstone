@@ -43,7 +43,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                         if (newText != null) {
                             if (newText.length >= 3) {
                                 searchProduct(newText)
-                                getProductsByCategory(newText)
                             } else {
                                 searchAdapter.submitList(emptyList())
                             }

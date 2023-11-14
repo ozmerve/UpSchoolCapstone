@@ -37,7 +37,19 @@ class DetailViewModel @Inject constructor(
     }
 
     fun addToCart(productId: Int) = viewModelScope.launch {
-        productRepository.addToCart(firebaseRepository.getUserId(), productId)
+        _detailState.value = DetailState.Loading
+
+        when(val result = productRepository.addToCart(firebaseRepository.getUserId(), productId)) {
+            is Resource.Success -> {
+                _detailState.value = DetailState.ShowPopUp(result.data.message.toString())
+            }
+            is Resource.Error -> {
+                _detailState.value = DetailState.ShowPopUp(result.errorMessage)
+            }
+            is Resource.Fail -> {
+                _detailState.value = DetailState.EmptyScreen(result.failMessage)
+            }
+        }
     }
 
     fun setFavoriteState(id: Int) {

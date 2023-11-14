@@ -47,14 +47,38 @@ class CartViewModel @Inject constructor(
         }
     }
     fun deleteFromCart(productId: Int) = viewModelScope.launch {
-        productRepository.deleteFromCart(firebaseRepository.getUserId(), productId)
-        getCartProducts()
-        resetTotalAmount()
+        _cartProductState.value = CartProductState.Loading
+
+        when(val result = productRepository.deleteFromCart(firebaseRepository.getUserId(), productId)) {
+            is Resource.Success -> {
+                getCartProducts()
+                resetTotalAmount()
+                CartProductState.ShowPopUp(result.data.message.toString())
+            }
+            is Resource.Error -> {
+                _cartProductState.value = CartProductState.ShowPopUp(result.errorMessage)
+            }
+            is Resource.Fail -> {
+                _cartProductState.value = CartProductState.EmptyScreen(result.failMessage)
+            }
+        }
     }
     fun clearCart() = viewModelScope.launch {
-        productRepository.clearCart(firebaseRepository.getUserId())
-        getCartProducts()
-        resetTotalAmount()
+        _cartProductState.value = CartProductState.Loading
+
+        when(val result = productRepository.clearCart(firebaseRepository.getUserId())) {
+            is Resource.Success -> {
+                getCartProducts()
+                resetTotalAmount()
+                CartProductState.ShowPopUp(result.data.message.toString())
+            }
+            is Resource.Error -> {
+                _cartProductState.value = CartProductState.ShowPopUp(result.errorMessage)
+            }
+            is Resource.Fail -> {
+                _cartProductState.value = CartProductState.EmptyScreen(result.failMessage)
+            }
+        }
     }
     private fun resetTotalAmount() {
         _totalPriceAmount.value = 0.0

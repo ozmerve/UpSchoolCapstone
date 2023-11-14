@@ -26,10 +26,6 @@ class SearchViewModel @Inject constructor(private val productRepository: Product
             is Resource.Error -> SearchState.ShowPopUp(result.errorMessage)
         }
     }
-
-    fun getProductsByCategory(category: String) = viewModelScope.launch {
-        productRepository.getProductsByCategory(category)
-    }
 }
 
 sealed interface SearchState {

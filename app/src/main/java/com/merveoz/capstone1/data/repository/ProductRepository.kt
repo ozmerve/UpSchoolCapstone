@@ -1,6 +1,5 @@
 package com.merveoz.capstone1.data.repository
 
-
 import com.merveoz.capstone1.common.Resource
 import com.merveoz.capstone1.data.mapper.mapProductEntityToProductUI
 import com.merveoz.capstone1.data.mapper.mapProductToProductUI
@@ -51,22 +50,6 @@ class ProductRepository(
                 }
             }  catch (e: Exception) {
                 Resource.Error("Something went wrong")
-            }
-        }
-
-    suspend fun getProductsByCategory(category: String): Resource<List<ProductUI>> =
-        withContext(Dispatchers.IO) {
-            try {
-                val favorites = productDao.getProductIds()
-                val response = productService.getProductsByCategory(category).body()
-
-                if (response?.status == 200) {
-                    Resource.Success(response.products.orEmpty().mapProductToProductUI(favorites))
-                } else {
-                    Resource.Fail(response?.message.orEmpty())
-                }
-            } catch (e: Exception) {
-                Resource.Error(e.message.orEmpty())
             }
         }
 
