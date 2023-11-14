@@ -82,9 +82,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="All Courses"
+                android:text="ALL COURSES"
                 android:textColor="@color/color9"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/rv_products"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,9 +97,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/roboto"
                 android:text="ON SALE"
-                android:textColor="@color/color10"
-                android:textSize="16sp"
+                android:textColor="@color/splash"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/rv_sale_products"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,6 +142,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_toolbar" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

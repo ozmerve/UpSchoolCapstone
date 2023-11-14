@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/detail_toolbar"
         android:layout_width="match_parent"
@@ -41,8 +40,9 @@
 
             <ImageView
                 android:id="@+id/iv_product"
-                android:layout_width="160dp"
-                android:layout_height="150dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/rating_bar"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,10 +57,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="105dp"
+                android:layout_marginEnd="24dp"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/tv_title"
                 app:layout_constraintEnd_toStartOf="@+id/tv_category"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_product" />
 
@@ -68,7 +69,8 @@
                 android:id="@+id/tv_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -82,9 +84,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:hint="price"
                 app:layout_constraintEnd_toStartOf="@+id/tv_sale_price"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@+id/tv_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
@@ -93,6 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
                 app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,6 +107,8 @@
                 android:id="@+id/tv_sale_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:hint="sale price"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_price"
@@ -122,6 +129,7 @@
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
                 android:hint="Category"
                 app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -139,6 +147,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/splash"
+        android:fontFamily="@font/roboto"
         android:text="Add To Cart"
         android:textColorHighlight="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -150,7 +159,7 @@
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"

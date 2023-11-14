@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.merveoz.capstone1.R
 import com.merveoz.capstone1.common.gone
+import com.merveoz.capstone1.common.strike
 import com.merveoz.capstone1.common.visible
 import com.merveoz.capstone1.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,14 +62,15 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     ivFav.visible()
                     tvTitle.text = state.product.title
                     tvPrice.text = "${state.product.price}₺"
+                    tvSalePrice.text = "${state.product.salePrice}₺"
                     tvDescription.text = state.product.description
                     ratingBar.rating = state.product.rate.toFloat()
                     tvCategory.text = state.product.category
 
-                    if (!state.product.saleState) {
-                        tvSalePrice.gone()
+                    if (state.product.saleState) {
+                        tvPrice.strike = true
                     } else {
-                        tvSalePrice.text = "${state.product.salePrice}₺"
+                        tvSalePrice.gone()
                     }
 
                     ivFav.setBackgroundResource(

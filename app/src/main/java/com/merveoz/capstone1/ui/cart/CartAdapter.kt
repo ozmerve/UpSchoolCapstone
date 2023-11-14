@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.merveoz.capstone1.common.gone
+import com.merveoz.capstone1.common.strike
 import com.merveoz.capstone1.data.model.response.ProductUI
 import com.merveoz.capstone1.databinding.ItemCartProductBinding
 
@@ -34,9 +36,12 @@ class CartAdapter(
         fun bind(product: ProductUI) {
             with(binding) {
                 tvCartTitle.text = product.title
-                tvCartPrice.text = if(product.saleState) {
+
+                tvPrice.text = if(product.saleState) {
                     "${product.salePrice} ₺"
-                } else "${product.price} ₺"
+                } else {
+                    "${product.price} ₺"
+                }
 
                 Glide.with(ivCartProduct).load(product.imageOne).into(ivCartProduct)
 

@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.merveoz.capstone1.common.gone
+import com.merveoz.capstone1.common.strike
 import com.merveoz.capstone1.data.model.response.ProductUI
 import com.merveoz.capstone1.databinding.ItemSearchProductBinding
 
@@ -31,11 +33,13 @@ class SearchAdapter(
         fun bind(product: ProductUI) {
             with(binding) {
                 tvTitle.text = product.title
+                tvPrice.text = "${product.price} ₺"
+                tvProductSale.text = "${product.salePrice} ₺"
 
-                if(!product.saleState) {
-                    tvPrice.text = "${product.price} ₺"
+                if(product.saleState) {
+                    tvPrice.strike = true
                 } else {
-                    tvPrice.text = "${product.salePrice} ₺"
+                    tvProductSale.gone()
                 }
 
                 ratingBar.rating = (product.rate).toFloat()

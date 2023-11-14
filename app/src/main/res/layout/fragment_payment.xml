@@ -25,8 +25,10 @@
                 android:id="@+id/tv_payment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
                 android:text="Pay By Credit Card"
                 android:textAlignment="center"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +46,7 @@
                     android:id="@+id/et_card_fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="Full Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +63,7 @@
                     android:id="@+id/et_card_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="Card Number"
                     android:inputType="number"
                     android:maxLength="16" />
@@ -80,6 +84,7 @@
                     android:id="@+id/et_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="Month"
                     android:inputType="number"
                     android:maxLength="2" />
@@ -101,6 +106,7 @@
                     android:id="@+id/et_year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="Year"
                     android:inputType="number"
                     android:maxLength="4" />
@@ -122,6 +128,7 @@
                     android:id="@+id/et_cvc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="CVC"
                     android:inputType="number"
                     android:maxLength="3" />
@@ -141,6 +148,7 @@
                     android:id="@+id/et_mail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:hint="E-mail" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,7 +162,9 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/splash"
+        android:fontFamily="@font/roboto"
         android:text="Buy Now"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
