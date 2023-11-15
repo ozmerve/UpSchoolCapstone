@@ -36,5 +36,8 @@
 ## Presentation
 [CapstoneProject.pptx](https://github.com/ozmerve/UpschoolCapstone/files/13369226/CapstoneProject.pptx)
 
-## Drive 
+## Video
+https://drive.google.com/file/d/1eEc0F8dcKzStkuREOMyoDVjAyMIoAvXi/view?usp=drive_link
+
+## Zip and Video 
 https://drive.google.com/drive/folders/17IlbD8Wa_8kEMVIFOKCRvX_kiEgylRru?usp=drive_link
